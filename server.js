@@ -1,14 +1,14 @@
 const inquirer = require('inquirer');
 const db = require('./config/connection');
 const utils = require("util");
-db.query = utils.promisify(db.query);
+const query = utils.promisify(db.query);
 
 function startApp() {
   inquirer
     .prompt([
       {
         type: "list",
-        name: "choice",
+        name: "userAction",
         message: "What would you like to do?",
         choices: [
           "View all departments",
@@ -25,7 +25,8 @@ function startApp() {
     ])
 
     .then((options) => {
-      switch (options.choice) {
+      console.log(options);
+      switch (options.userAction) {
         case "View all departments":
           viewDepts();
           break;
@@ -52,3 +53,31 @@ function startApp() {
       }
     });
 }
+
+function viewDepts() {
+  db.promise().query('SELECT * FROM department').then(function (dataFromTable) {
+    console.table(dataFromTable[0]);
+    startApp();
+  })
+}
+
+function addDepartment() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "deptName",
+        message: "What department would you like to add?",
+      },
+    ])
+    .then((options) => {
+      console.log(options);
+      db.promise().query('INSERT INTO department SET?', {
+        name: options.deptName,
+      }).then(function (dataFromTable) {
+        console.table(dataFromTable[0]);
+        startApp();
+      })
+    });
+}
+startApp();
