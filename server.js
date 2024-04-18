@@ -40,7 +40,7 @@ function startApp() {
           addDepartment();
           break;
         case "Add a role":
-          addRoleAA();
+          addRole();
           break;
         case "Add an employee":
           addEmployee();
@@ -61,7 +61,21 @@ function viewDepts() {
   })
 }
 
+function viewRoles() {
+  db.promise().query('SELECT * FROM role').then(function (dataFromTable) {
+    console.table(dataFromTable[0]);
+    startApp();
+  })
+}
+
+function viewEmployees() {
+  db.promise().query('SELECT * FROM employee').then(function (dataFromTable) {
+    console.table(dataFromTable[0]);
+    startApp();
+  })
+}
 function addDepartment() {
+
   inquirer
     .prompt([
       {
@@ -80,4 +94,96 @@ function addDepartment() {
       })
     });
 }
+
+function addRole() {
+
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "roleName",
+        message: "What role would you like to add?"
+      },
+      {
+        type: "number",
+        name: "salary",
+        message: "What is the positions salary amount?"
+      },
+    ])
+    .then(({ roleName, salary }) => {
+      db.query('SELECT name, id FROM department', (err, result) => {
+        const department = result.map(({ name, id }) => ({ name, value: id }));
+
+        inquirer
+          .prompt([
+            {
+              type: "list",
+              name: "deptId",
+              message: "Which department would you like to add this role to?",
+              choices: department
+            },
+          ])
+          .then(({ deptId }) => {
+            console.log(deptId);
+            db.promise().query('INSERT INTO role SET?', {
+              title: roleName,
+              salary: salary,
+              department_id: deptId
+            }).then(function (dataFromTable) {
+              console.table(dataFromTable[0]);
+              startApp();
+            })
+          })
+      })
+    });
+
+
+
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "employeeName",
+        message: "What employee would?"
+      },
+      {
+        type: "number",
+        name: "salary",
+        message: "What is the positions salary amount?"
+      },
+    ])
+    .then(({ roleName, salary }) => {
+      db.query('SELECT name, id FROM department', (err, result) => {
+        const department = result.map(({ name, id }) => ({ name, value: id }));
+
+        inquirer
+          .prompt([
+            {
+              type: "list",
+              name: "deptId",
+              message: "Which department would you like to add this role to?",
+              choices: department
+            },
+          ])
+          .then(({ deptId }) => {
+            console.log(deptId);
+            db.promise().query('INSERT INTO role SET?', {
+              title: roleName,
+              salary: salary,
+              department_id: deptId
+            }).then(function (dataFromTable) {
+              console.table(dataFromTable[0]);
+              startApp();
+            })
+          })
+      })
+    });
+
+}
 startApp();
+
+/*first_name,
+  last_name,
+  role_id,
+  manager_id
+        */
