@@ -1,40 +1,34 @@
-# README Generator for Life
-
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+# Employee Tracker
+ ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Discription
+This employee tracker allows us to view multiple elements related to an employee in an organized table. One can also add/update elements which are related to an employee into the  table. Express backend tech is used to view and add such information.
 
-This easy to use application allows one to generate a README file for ones project right from the command line. 
+## Table of Contents
 
-## Usage
+- [Installation](#installation-processes)
+- [Usage](#app-usage)
+- [Tests](#testing)
+- [License](#license)
+- [contributors](#contributors)
 
-By opening up a terminal through the index.js file, a series of questions will be asked. The responses will be generated into sections that form a professional README. To run the Generate README application, right click on the index.js file in VS Code and select the "Open in Integrated Terminal" option. Then, in the terminal, type and run "node index.js". This will run the program and allow you to answer the questions as they appear. Once finished, a "generated Readme" file will be created that looks professional and will suffice for all of your projects.
+## Installation Processes
+There are no steps to install the project. If one clones this project into their local machine and runs the application on a code editor, one will have all the tools necissary to navigate the app. Follow this [link](https://docs.github.com/en/enterprise-server@3.9/repositories/creating-and-managing-repositories/cloning-a-repository) which discribes how to clone a repository to ones local machine.
 
-## Tests
-
-Any tests that were run, were ran in the same fassion as described above under the "Usage" section.
+## App Usage
+After you have cloned the repo to your local machine, and opened the application in your code editor, you can run it by highlighting the server.js file and opening the terminal. Then, follow these either of these commands: "node server.js" or "npm run start". These will run the program in express. Using the arrow keys, choose which prompt you would like to execute and answer any questions that follow.
 
 ## Contributors
+Dennis, Megan, and Bobbi of ASU-EDX boot camp were indispensable in helping me create this project 
 
-Specail thanks to the various teachers and TAs with the ASU Fullstack Web Development Bootcamp for the priceless help in undertanding and helping to create the code written in these files.
+## Testing
+No need to test this application. Running it as described above will suffice.
 
-## GitHub Username
+## Questions
+If you have any questions about the repo, open an issue or contact me directly at undefined. If you want to see more of my work, please visit my [GitHub](https://https://github.com/TrevorsDev)
 
-TrevorsDev
-
-### Link to GitHub README Repo
-
-https://github.com/TrevorsDev/READmeeeee
-
-## Email
-
+### Email
 Trevor9J@Protonmail.com
 
-## License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+### License
+This project is licensed under the MIT.
